@@ -1,0 +1,179 @@
+
+
+
+<!doctype html>
+<html lang="ar" dir="ltr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-7mQhpDl5nRA5nY9lr8F1st2NbIly/8WqhjTp+0oFxEA/QUuvlbF6M1KXezGBh3Nb" crossorigin="anonymous">
+
+    <title>Login Page</title>
+  </head>
+  <body>
+    <!--  -->
+       <div class="banner">
+       
+       <form class="container"[formGroup]="loginForm"(ngSubmit)="login(loginForm.value)">
+        <h2 class="main-heading">Fill The Login Information !!!!!!!!!!!!</h2> 
+           
+        <div class="container-fluid">
+        <!-- User Id -->
+         <div class="col-md-4 form-group">
+          <label for="inputAddress" class="form-label1">User Id</label>
+          <input type="number" class="form-control" id="inputAddress"formControlName="id"> 
+          
+          <!-- Display Error Msg -->
+           <div *ngIf="Id?.invalid && (Id?.touched || Id?.dirty)">  
+              <span *ngIf="Id?.errors?.['required']"class="text-danger" >*Id Should Be Requird</span>
+              <span *ngIf="Id?.errors?.['pattern']" class="text-danger">*Enter Only Numbers</span>
+          </div>
+      </div> 
+
+          <!-- User Name -->
+           <div class="col-md-4 form-group">
+              <label for="inputAddress" class="form-label2">User Name</label>
+              <input type="text" class="form-control" id="inputAddress"formControlName="username">
+              
+              <!-- Display Error Msg -->
+             <div *ngIf="name?.invalid && (name?.touched || name?.dirty)">  
+                  <span *ngIf="name?.errors?.['required']"class="text-danger" >*Please Enter User Name</span>
+                  <span *ngIf="name?.errors?.['pattern']" class="text-danger">*Enter Only Character</span>
+              </div>
+          </div> 
+
+           <!-- User Password -->
+            <div class="col-md-4 form-group">
+            <label for="inputAddress" class="form-label3">User Password</label>
+            <input type="password" class="form-control" id="inputAddress"formControlName="password"> 
+            
+            <!-- Display Error Msg -->
+             <div *ngIf="pass?.invalid && (pass?.touched || pass?.dirty)">  
+                <span *ngIf="pass?.errors?.['required']"class="text-danger" >*Password Is Required</span>
+                <span *ngIf="name?.errors?.['pattern']" class="text-danger">*Enter Only Character</span>
+            </div>
+        </div> 
+
+          
+
+            <!-- Button -->
+           
+          <!-- <div class=" col-md-3 "> -->
+               <button type="submit" class="btn btn-dark"[disabled]="!loginForm.valid">Sign in</button>&nbsp;&nbsp; 
+          <!-- </div> -->
+      
+          <!-- <div class="col-md-3"> -->
+               <button type="reset" class="btn btn-dark">Reset</button> 
+          <!-- </div> -->
+         </div>
+       </form>  
+      </div>  
+      <!-- <div id="mainContainer">
+        <div class="">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-md-6 col-xs-12 d-none d-lg-block d-md-block">
+            <div id="mainBgn"></div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-xs-12">
+            <div class="p-4 centerOnMobile" >
+              <div class="formContainer">
+                <h2 class="p-2 h4 text-center"><i class="fas fa-lock me-2"></i> Login</h2>
+                <form action="#">
+                  <div class="form-floating my-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">User Id</label>
+                  </div>
+                  <div class="form-floating my-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">User Name</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                  <div class="mt-3">
+                    <input type="checkbox" /> Remember me
+                  </div>
+                  <div id="btnHolder">
+                    <button [disabled]="!loginForm.valid"class="btn btn-lg btn-primary mt-3 w-100">Login</button>
+                  </div>
+                </form>
+              </div>
+              <div class="mt-2 text-center">
+                <a href="#">New? signup</a><br />
+                <a href="#">Forgot Password?</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div> -->
+      
+        <!-- <div id="pageContent">
+          <div class="d-flex align-items-center h-100">
+            <div class="container">
+              <form class="container"[formGroup]="loginForm"(ngSubmit)="login(loginForm.value)">
+              <div class="row">
+                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-xs-12 ms-auto">
+                  <div class="bg-white rounded shadow-lg">
+                    <h1 class="text-center h5 pt-5 pb-3"><strong>LOGIN</strong></h1>
+                    <form class="py-2">
+                      <div class="position-relative maxWidth320 px-2">
+                        <div class="inlineLogo"><i class="text-accent fas fa-at"></i></div>
+                        <input type="text" placeholder="User Id" class="border-0  w-100" formControlName="id"/>
+                      </div>
+
+                      <div class="position-relative maxWidth320 px-2">
+                        <div class="inlineLogo"><i class="text-accent fas fa-at"></i></div>
+                        <input type="text" placeholder="User Name" class="border-0  w-100" formControlName="username"/>
+                      </div>
+                      <div class="position-relative maxWidth320 px-2 d-flex align-items-end justify-content-between">
+                        <div>
+                          <div class="inlineLogo"><i class="text-accent fas fa-key"></i></div>
+                          <input type="password" placeholder="Password" class="border-0  w-100" formControlName="password"/>
+                        </div>
+                        <div>
+                          <button class="btn text-accent">Forgot?</button>
+                        </div>
+                      </div>
+                      <div id="submitBtn" class="text-center">
+                        <button class="btn w-50 btn-lg shadow-sm rounded-pill">Login</button>
+                      </div>
+                    </form>
+                    <div class="text-center pb-4">
+                      Don't have an account? <a href="#">Signup</a>
+                    </div>
+                  </div>
+                  <div class="p-2 mx-2 rounded-bottom shadow bg-accent border-bottom border-dark"></div>
+                  <div class="p-1 mx-3 rounded-bottom shadow bg-accent"></div>
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div> -->
+
+ 
+
+ 
+
+
+  
+   
+       
+   
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
